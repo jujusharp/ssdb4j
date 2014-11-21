@@ -243,11 +243,18 @@ public class SimpleClient implements SSDB {
 		return req(Cmd.qpush, bytes(key), bytes(value));
 	}
 
+	public Response qpush(Object key, Object... value) {
+        return req(Cmd.qpush, bytes(key), bytess(value));
+    }
+
 	
 	public Response qpop(Object key) {
 		return req(Cmd.qpop, bytes(key));
 	}
 	
+	public Response qpop(Object key, int limit) {
+        return req(Cmd.qpop, bytes(key), Integer.toString(limit).getBytes());
+    }
 	
 	public Response qlist(Object key_start, Object key_end, int limit) {
 		return req(Cmd.qlist, bytes(key_start), bytes(key_end), Integer.toString(limit).getBytes());

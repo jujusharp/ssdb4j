@@ -91,9 +91,11 @@ public interface SSDB extends Closeable {
 	Response qfront(Object key);
 	Response qback(Object key);
 	Response qpush(Object key, Object value);
+	Response qpush(Object key, Object... value);
 	Response qpush_front(Object key, Object value);
 	Response qpush_back(Object key, Object value);
 	Response qpop(Object key);
+	Response qpop(Object key, int limit);
 	Response qpop_front(Object key);
 	Response qpop_back(Object key);
 	Response qfix(Object key);
